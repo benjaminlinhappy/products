@@ -17,7 +17,7 @@ def user_input(products):
 		name = input('please input product name: ')
 		if name == 'q':
 			break
-		price = int(input('please input product price:'))
+		price = input('please input product price:')
 		products.append([name, price])
 	print(products)
 	return products
@@ -32,9 +32,10 @@ def write_file(filename, products):
 	with open(filename, 'w', encoding = 'utf-8') as f:
 		f.write('product,price\n')
 		for p in products:
-			f.write(p[0] + ',' + str(  p[1]) + '\n')
+			f.write(p[0] + ',' + p[1] + '\n')
 
 def main():
+	products = []
 	filename = 'products.csv'
 	if os.path.isfile(filename):#檢查檔案是否存在
 		products = read_file(filename)
